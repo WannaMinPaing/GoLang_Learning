@@ -1,33 +1,51 @@
 package main // To know Golang where begin to start
 
-import (
-	"fmt"
-	"math"
-)
+import "fmt"
 
 func main() {
-	// var investmentAmount float64 = 1000
-	// ဒီလို  ကြော်ညာတာက ပုံမှန်ဘဲ။ ကိုလိုချင်တဲ့  Data Type  တစ်ခါထဲ သတ်မှတ်ထားတာ
+	var number_one int = 10
+	var number_two int = 10
 
-	// var expectedReturnRate = 5.5
-	// ဒါကတော့ ကိုထည့်လိုက်တဲ့ value ပေါ်မူတည်ပြီး Data Type သတ်မှတ်တာ
+	outputText("Hello")
 
-	//expectedReturnRate := 5.5
-	// ဒါကတော့ var ထည့်စရာ မလိုတဲ့ ပုံစံ, Data Type လဲ  value ပေါ်မူတည်ပြီး Data Type သတ်မှတ်တာ, recommand လဲ  ပေးထားပါတယ်။
+	calculateValue(number_one, number_two)
 
-	// var investmentAmount, years = 1000, "10"
-	// ဒါကတော့ variable 2 ခုကို တစ်ခါထဲ  ကြော်ညာတာ
+	fmt.Println(returnValue(number_one, number_two))
 
-	var investmentAmount float64 = 1000
-	var years float64 = 10
-	expectedReturnRate := 5.5
+	first_value, second_value := returnMultiValue(number_one, number_two)
+	fmt.Println("The first number is ", first_value)
+	fmt.Println("The second number is ", second_value)
 
-	var amount float64 = 1.2
-	fmt.Scan(&amount)
-	//fmt.Scan သည် User ဆီကနေ Terminal ကနေပြီး Data Input လှမ်းတောင်းချင်သော အခါတွင် သုံးသည်။ variable ရှေ့တွင် & ထည့်ပေးရမည်။
+	first_auto_value, second_auto_value := returnAutoMultiValue(number_one, number_two)
+	fmt.Println("The first number is ", first_auto_value)
+	fmt.Println("The second number is ", second_auto_value)
 
-	var futureValue = investmentAmount * math.Pow(1+expectedReturnRate/100, years)
-	fmt.Println(futureValue)
 }
 
-// 20
+func outputText(text string) {
+	fmt.Println(text)
+}
+
+func calculateValue(n_one int, n_two int) {
+	fmt.Println(n_one + n_two)
+}
+
+func returnValue(n_one int, n_two int) int {
+	return n_one + n_two
+}
+
+func returnMultiValue(n_one int, n_two int) (int, float64) {
+	var number_three float64 = 10.5
+	var sum_num int = n_one + n_two
+
+	return sum_num, number_three
+}
+
+func returnAutoMultiValue(n_one int, n_two int) (sum_num int, number_three float64) {
+	number_three = 10.5
+	sum_num = n_one + n_two
+
+	// return sum_num, number_three
+	//same upper code
+	return
+}
