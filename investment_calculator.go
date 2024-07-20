@@ -1,18 +1,29 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"strconv"
 )
 
-func getNumberFromFile() float64 {
-	data, _ := os.ReadFile("number.txt")
+func getNumberFromFile() (float64, error) {
+	data, err := os.ReadFile("wrong.txt")
+
+	if err != nil {
+		return 0, errors.New("Fail to read file.")
+	}
+
 	numberText := string(data)
-	number, _ := strconv.ParseFloat(numberText, 64)
+	number, err := strconv.ParseFloat(numberText, 64)
+
+	if err != nil {
+		return 0, errors.New("Failed tp parse stored balance value.")
+	}
+
 	//strconv => string to conversition
 	// float 64
-	return number
+	return number, nil
 }
 
 func writeNumberToFile(number int) {
@@ -22,6 +33,12 @@ func writeNumberToFile(number int) {
 
 func main() {
 	writeNumberToFile(2)
-	var getNumber = getNumberFromFile()
+
+	var getNumber, err = getNumberFromFile()
+	if err != nil {
+		fmt.Println("Error")
+		fmt.Println(err)
+	}
+
 	fmt.Println(getNumber)
 }
