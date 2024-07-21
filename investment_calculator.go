@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"example.com/investment-calculator/filepro"
+	"github.com/Pallinder/go-randomdata"
 )
 
 func main() {
@@ -15,4 +16,5 @@ func main() {
 
 	fmt.Println(message)
 	fmt.Println("Main File")
+	fmt.Println(randomdata.Email())
 }
