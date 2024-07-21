@@ -1,20 +1,17 @@
 package main
 
-import (
-	"fmt"
-
-	"example.com/investment-calculator/filepro"
-	"github.com/Pallinder/go-randomdata"
-)
+import "fmt"
 
 func main() {
-	sum := getSum(1.1, 2.2)
-	fmt.Println(sum)
-	tellSomething()
+	age := 32
+	var agePointer *int
+	agePointer = &age
 
-	message := filepro.ShowMessage("I am custom package")
+	fmt.Println(age)
+	getAdultYear(agePointer)
+	fmt.Println(age)
+}
 
-	fmt.Println(message)
-	fmt.Println("Main File")
-	fmt.Println(randomdata.Email())
+func getAdultYear(agePointerRef *int) {
+	*agePointerRef = *agePointerRef - 18
 }
