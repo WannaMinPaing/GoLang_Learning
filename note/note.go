@@ -43,3 +43,5 @@ func New(title, content string) (Note, error) {
 		CreatedAt: time.Now(),
 	}, nil
 }
+
+// 97
